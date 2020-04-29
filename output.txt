@@ -1,0 +1,5 @@
+MAC d4ad.71ee.9a46 belongs to device 'test-sw' SVI Vlan405
+MAC 0cd0.f860.eb43 belongs to device 'T9D-ACC1' SVI Vlan443
+MAC 00aa.6e0e.0dec was learned on device 'test-sw' access port Gi0/3
+MAC 8030.e030.23b4 was learned on device 'T9D-CSW1' access port Gi1/0/2
+Press any key to continue . . .

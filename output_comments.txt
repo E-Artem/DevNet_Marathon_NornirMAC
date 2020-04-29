@@ -1,0 +1,59 @@
+
+! --- [MAC 0cd0.f860.eb43]
+
+T9D-ACC1#sh int Vlan443 | s bia
+  Hardware is EtherSVI, address is 0cd0.f860.eb43 (bia 0cd0.f860.eb43)
+T9D-ACC1#   
+T9D-ACC1#sh ip arp | s Vlan443
+Internet  10.145.99.123           -   0cd0.f860.eb43  ARPA   Vlan443
+T9D-ACC1#
+
+
+! --- [MAC d4ad.71ee.9a46] 
+
+test-sw#
+test-sw#sh int Vlan405 | s bia
+  Hardware is EtherSVI, address is d4ad.71ee.9a46 (bia d4ad.71ee.9a46)
+test-sw#
+test-sw#sh ip arp | s Vlan405
+Internet  172.29.0.230            -   d4ad.71ee.9a46  ARPA   Vlan405
+
+
+! --- [MAC d4c9.3c6d.c600] TRUNK INTERFACE
+
+T9D-ACC1#sh mac address-table | s d4c9.3c6d.c600
+ 441    d4c9.3c6d.c600    DYNAMIC     Po1
+T9D-ACC1#
+T9D-ACC1#sh int Po1 swi | s Oper
+Operational Mode: trunk
+Operational Trunking Encapsulation: dot1q
+Operational private-vlan: none
+T9D-ACC1#
+
+
+! --- [MAC 00aa.6e0e.0dec] IF with VOICE VLAN
+
+test-sw#sh mac address-table | s Gi0/3
+ 443    00aa.6e0e.0dec    DYNAMIC     Gi0/3
+   1    00aa.6e0e.0dec    DYNAMIC     Gi0/3
+
+test-sw#sh int Gi0/3 swi | s Oper
+Operational Mode: static access
+Operational Trunking Encapsulation: native
+Operational private-vlan: none
+
+test-sw#sh int Gi0/3 swi | s Voice
+Voice VLAN: 443 (VLAN_VOICE)
+
+
+! --- [MAC 8030.e030.23b4]
+
+T9D-CSW1#sh mac address-table | s Gi1/0/2
+ 441    8030.e030.23b4    DYNAMIC     Gi1/0/2
+T9D-CSW1#sh int Gi1/0/2 swi | s Oper     
+Operational Mode: static access
+Operational Trunking Encapsulation: native
+Operational private-vlan: none
+T9D-CSW1#
+
+! ---
